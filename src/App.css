@@ -1,38 +1,235 @@
-.App {
-  text-align: center;
+/*
+font-family: 'Ubuntu Mono', monospace;
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.clear-row {
+  flex: 100%;
+  max-width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+main h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+
+.input-component {
+  margin-bottom: 10px;
+}
+
+.input-component label {
+  color: #333333;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.input-component input,
+.input-component textarea {
+  font-weight: 500;
+  display: inline-block;
+  width: 200px;
+  border: 2px solid #828282;
+  border-radius: 8px;
+  padding: 18px 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-component textarea {
+  min-height: 150px;
+}
+
+.input-component input:hover,
+.input-component textarea:hover {
+  border: 2px solid #333333;
+}
+
+.input-component input:focus,
+.input-component textarea:focus {
+  border: 2px solid #2962FF;
+}
+
+/*Input Component Error*/
+
+.input-component.error label {
+  color: #D32F2F !important;
+}
+
+.input-component.error input,
+.input-component.error textarea {
+  color: #828282;
+  border: 2px solid #D32F2F !important;
+}
+
+.input-component.error input:hover,
+.input-component.error textarea:hover {
+  border: 2px solid #333333 !important;
+}
+
+.input-component.error input:focus,
+.input-component.error textarea:focus {
+  border: 2px solid #D32F2F !important;
+}
+
+/*Input Component Disabled*/
+.input-component.disabled input,
+.input-component.disabled textarea {
+  color: #828282 !important;
+  background: #F2F2F2 !important;
+  border: 2px solid #E0E0E0 !important;
+  pointer-events: none !important;
+}
+
+/*Input Component Helper Text*/
+.input-component .input-component__helper-text {
+  color: #828282;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.input-component.error .input-component__helper-text {
+  color: #D32F2F;
+}
+
+/*Input Component with Icon Start*/
+.input-component--icon .form-group {
+  position: relative;
+  display: inline-flex;
+}
+
+.input-component--icon.icon-start .form-group input,
+.input-component--icon.icon-start .form-group textarea {
+  padding-left: 40px;
+}
+
+.input-component--icon.icon-start .form-group span {
+  color: #828282;
+  position: absolute;
+  top: 65%;
+  left: 20px;
+  transform: translate(-50%, -50%);
+}
+
+/*Input Component with Icon End*/
+.input-component--icon.icon-end .form-group input,
+.input-component--icon.icon-end .form-group textarea {
+  padding-left: 8px;
+}
+
+.input-component--icon.icon-end .form-group span {
+  color: #828282;
+  position: absolute;
+  top: 65%;
+  right: 4px;
+  transform: translate(-50%, -50%);
+}
+
+/*Size*/
+.input-component--sm input,
+.input-component--sm textarea {
+  padding: 10px 8px;
+}
+
+.input-component--md input,
+.input-component--md textarea {
+  padding: 18px 8px;
+}
+
+/*Full Width*/
+.input-component--block {
+  width: 100% !important;
+  display: block !important;
+}
+
+.input-component--block input,
+.input-component--block textarea {
+  display: block;
+  width: 100%;
+}
+
+/*Change Label Color*/
+
+.form-group {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.form-group label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2d8cf0;
+}
+.form-group input:focus + label,
+.form-group select:focus + label,
+.form-group textarea:focus + label {
+  color: #2d8cf0;
+}
+
+/*
+.input-component.error .form-group input:focus,
+.input-component.error .form-group select:focus,
+.input-component.error .form-group textarea:focus {
+
+}
+*/
+
+.input-component.error .form-group input:focus + label,
+.input-component.error .form-group select:focus + label,
+.input-component.error .form-group textarea:focus + label {
+  color: #D32F2F;
+}
+
+/*Input Group*/
+.input-group {
+  margin-right: 70px;
+  margin-bottom: 50px;
+}
+
+.input-group h5 {
+  font-family: 'Ubuntu Mono', monospace;
+  margin-bottom: 5px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+/*Footer*/
+footer {
+  padding-bottom: 50px;
+}
+
+footer p {
+  color: #A9A9A9;
 }
